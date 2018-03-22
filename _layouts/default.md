@@ -19,6 +19,9 @@
 	{% if page.includes contains 'jquery' %}
 		<script src="/demos/libraries/jquery-1.8.3.min.js"></script>
 	{% endif %}
+	{% if page.includes contains 'i18next' %}
+		<script src="/js/i18next.min.js"></script>
+	{% endif %}
 	{% if page.includes contains 'convnetjs' %}
 		<script src="/demos/libraries/convnet.js" type="text/javascript"></script>
 		<script src="/demos/libraries/util.js" type="text/javascript"></script>

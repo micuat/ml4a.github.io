@@ -5,6 +5,30 @@
 
 */
 
+i18next.init({
+	lng: 'en',
+	debug: true,
+	resources: {
+		en: {
+			translation: {
+				"segment0": 'Suppose we have a dataset with one point: \
+				$$x=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\end{bmatrix} \\qquad y={{y}}$$\
+				We can attempt to fit a 3x2x1 neural network with sigmoid activation functions, as seen below.'
+			}
+		},
+		fr: {
+			translation: {
+				"segment0": "Supposons que nous ayons un ensemble de données avec un point: \
+				$$x=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\end{bmatrix} \\qquad y={{y}}$$\
+				Nous pouvons essayer d'adapter un réseau neuronal 3x2x1 avec des fonctions d'activation sigmoïde, comme on le voit ci-dessous."
+			}
+		}
+	}
+}, function(err, t) {
+	// init set content
+	// updateContent();
+});
+
 function demo(parent, width, height)
 {
 	// setup canvas
@@ -192,9 +216,9 @@ function demo(parent, width, height)
 			while (get_mse(acts[2][0], y_correct) < 0.1) {	// make sure to pick weights whose forward pass is actually sufficiently incorrect
 				forward_pass(false);
 			};
-			set_text_panel(parent.description_panel_div, 'Suppose we have a dataset with one point: \
-				$$x=\\begin{bmatrix} '+input[0].toFixed(1)+' & '+input[1].toFixed(1)+' & '+input[2].toFixed(1)+' \\end{bmatrix} \\qquad y='+y_correct.toFixed(2)+'$$\
-				We can attempt to fit a 3x2x1 neural network with sigmoid activation functions, as seen below.', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment0', {in0: input[0].toFixed(1), in1: input[1].toFixed(1), in2: input[2].toFixed(1), y: y_correct.toFixed(2)}),
+				true);
 		},
 		draw: function() {},
 	});

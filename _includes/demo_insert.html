@@ -1,6 +1,7 @@
 {% assign demo = site.demos | where:"url", include.path | first %}
 
 <script src="{{ demo.script }}" type="text/javascript"></script>
+<script>i18next.changeLanguage("{{ include.language }}");</script>
 
 <script>
 

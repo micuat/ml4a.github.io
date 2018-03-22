@@ -1,7 +1,7 @@
 ---
 layout: chapter
 title: "Neural networks"
-includes: [mathjax, jquery, convnetjs, dataset, convnet, visualizer]
+includes: [mathjax, jquery, i18next, convnetjs, dataset, convnet, visualizer]
 header_image: "/images/headers/analytical_engine.jpg"
 header_text: "“It were much to be desired, that when mathematical processes pass through the human brain instead of through the medium of inanimate mechanism, it were equally a necessity of things that the reasonings connected with operations should hold the same just place as a clear and well-defined branch of the subject of analysis, a fundamental but yet independent ingredient in the science, which they must do in studying the engine.” <a href=\"https://books.google.de/books?id=b8YUDAAAQBAJ&pg=PA16&lpg=PA16\">Sketch of the Analytical Engine (1843), Ada Lovelace</a>"
 ---
@@ -134,7 +134,7 @@ The process of a neural network sending an initial input forward through its lay
 
 Let's demonstrate a forward pass with this interactive demo. Click the 'Next' button in the top-right corner to proceed. 
 
-{% include demo_insert.html path="/demos/simple_forward_pass/" parent_div="post" %}
+{% include demo_insert.html path="/demos/simple_forward_pass/" parent_div="post" language="en" %}
 
 # More layers, more expressiveness
 

@@ -16,7 +16,62 @@ i18next.init({
 				We can attempt to fit a 3x2x1 neural network with sigmoid activation functions, as seen below.',
 				"segment1": '\
 				Let\'s try a set of random weights and biases. For the first hidden layer, let\'s say our weights and biases are: \
-				$$w=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\\\ {{in3}} & {{in4}} & {{in5}} \\end{bmatrix} \\qquad b=\\begin{bmatrix} {{in6}} & {{in7}} \\end{bmatrix} $$'
+				$$w=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\\\ {{in3}} & {{in4}} & {{in5}} \\end{bmatrix} \\qquad b=\\begin{bmatrix} {{in6}} & {{in7}} \\end{bmatrix} $$',
+				"segment2": '\
+				And for the output layer, let\'s say the weights are: \
+				$$ \
+				w=\\begin{bmatrix} \
+				{{in0}} & {{in1}} \
+				\\end{bmatrix} \
+				$$\
+				And we let the final output neuron\'s bias be $b={{in2}}$',
+				"segment3": '\
+				Let\'s input our datapoint $x=\\begin{bmatrix}{{in0}} & {{in1}} & {{in2}}\\end{bmatrix}$ and see what output the network gives us.',
+				"segment4": '\
+				The output of the first (top-most in the graphic) hidden unit is: \
+				$$ z = ({{in0}} \\cdot {{in1}}) + ({{in2}} \\cdot {{in3}}) + ({{in4}} \\cdot {{in5}}) + {{in6}} = {{in7}} $$ \
+				$$ \\sigma({{in8}}) = {{in9}} $$',
+				"segment5": '\
+				The output of the second hidden unit is: \
+				$$ z = ({{in0}} \\cdot {{in1}}) + ({{in2}} \\cdot {{in3}}) + ({{in4}} \\cdot {{in5}}) + {{in6}} = {{in7}} $$ \
+				$$ \\sigma({{in8}}) = {{in9}} $$',
+				"segment6": '\
+				Now we take these and feed it into the output unit: \
+				$$ z = ({{in0}} \\cdot {{in1}}) + ({{in2}} \\cdot {{in3}}) + {{in4}} = {{in5}} $$ \
+				$$ \\sigma({{in6}}) = {{in7}} $$',
+				"segment7": '\
+				Not quite right (we wanted to get ${{in0}}$)...we can measure our error with the mean squared error (MSE), which is the most common measurement for error in regression problems: \
+				$$ \
+				\\begin{aligned} \
+				\\text{mse} &= ({{in1}} - {{in2}})^2 \\\\ \
+				\\text{mse} &= {{in3}} \
+				\\end{aligned} \
+				$$',
+				"segment8": '\
+				Now I\'ll magically give you the best set of weights. For the hidden layer: \
+				$$ \
+				w=\\begin{bmatrix} \
+				{{in0}} & {{in1}} & {{in2}} \\\\ \
+				{{in3}} & {{in4}} & {{in5}} \
+				\\end{bmatrix} \\qquad b=\\begin{bmatrix}{{in6}}  {{in7}}\\end{bmatrix}\
+				$$ \
+				And for the output layer: \
+				$$ \
+				w=\\begin{bmatrix} \
+				{{in8}} & {{in9}} \
+				\\end{bmatrix} \\qquad b={{in10}} \
+				$$',
+				"segment9": '\
+				Let\'s try this all again with these new weights: \
+				$$ \
+				\\begin{aligned} \
+				\\text{hidden unit 1} &= \\sigma(({{in0}} * {{in1}}) + ({{in2}} * {{in3}}) + ({{in4}} * {{in5}}) + {{in6}}) = {{in7}} \\\\ \
+				\\text{hidden unit 2} &= \\sigma(({{in8}} * {{in9}}) + ({{in10}} * {{in11}}) + ({{in12}} * {{in13}}) + {{in14}}) = {{in15}} \\\\ \
+				\\text{output} &= \\sigma(({{in16}} * {{in17}}) + ({{in18}} * {{in19}}) + {{in20}}) = {{in21}} \
+				\\end{aligned} \
+				$$',
+				"segment10": '\
+				Voilà! We got the answer we wanted - so the weights of the network effectively control what it outputs.'
 			}
 		},
 		fr: {
@@ -26,7 +81,62 @@ i18next.init({
 				Nous pouvons essayer d'adapter un réseau neuronal 3x2x1 avec des fonctions d'activation sigmoïde, comme on le voit ci-dessous.",
 				"segment1": '\
 				Essayons un ensemble de poids et de biais aléatoires. Pour la première couche cachée, disons que nos poids et biais sont: \
-				$$w=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\\\ {{in3}} & {{in4}} & {{in5}} \\end{bmatrix} \\qquad b=\\begin{bmatrix} {{in6}} & {{in7}} \\end{bmatrix} $$'
+				$$w=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\\\ {{in3}} & {{in4}} & {{in5}} \\end{bmatrix} \\qquad b=\\begin{bmatrix} {{in6}} & {{in7}} \\end{bmatrix} $$',
+				"segment2": '\
+				Et pour la couche de sortie, disons que les poids sont: \
+				$$ \
+				w=\\begin{bmatrix} \
+				{{in0}} & {{in1}} \
+				\\end{bmatrix} \
+				$$\
+				Et nous laissons le biais du neurone de sortie final être $b={{in2}}$',
+				"segment3": '\
+				Laissons entrer notre datapoint $x=\\begin{bmatrix}{{in0}} & {{in1}} & {{in2}}\\end{bmatrix}$ et voyons quelle sortie le réseau nous donne.',
+				"segment4": '\
+				La sortie de la première unité cachée (la plus haute dans le graphique) est: \
+				$$ z = ({{in0}} \\cdot {{in1}}) + ({{in2}} \\cdot {{in3}}) + ({{in4}} \\cdot {{in5}}) + {{in6}} = {{in7}} $$ \
+				$$ \\sigma({{in8}}) = {{in9}} $$',
+				"segment5": '\
+				La sortie de la deuxième unité cachée est: \
+				$$ z = ({{in0}} \\cdot {{in1}}) + ({{in2}} \\cdot {{in3}}) + ({{in4}} \\cdot {{in5}}) + {{in6}} = {{in7}} $$ \
+				$$ \\sigma({{in8}}) = {{in9}} $$',
+				"segment6": '\
+				Maintenant, nous les prenons et les introduisons dans l\'unité de sortie: \
+				$$ z = ({{in0}} \\cdot {{in1}}) + ({{in2}} \\cdot {{in3}}) + {{in4}} = {{in5}} $$ \
+				$$ \\sigma({{in6}}) = {{in7}} $$',
+				"segment7": '\
+				Pas tout à fait raison (nous voulions obtenir ${{in0}}$) ... nous pouvons mesurer notre erreur avec l\'erreur quadratique moyenne (MSE), qui est la mesure la plus courante d\'erreur dans les problèmes de régression: \
+				$$ \
+				\\begin{aligned} \
+				\\text{mse} &= ({{in1}} - {{in2}})^2 \\\\ \
+				\\text{mse} &= {{in3}} \
+				\\end{aligned} \
+				$$',
+				"segment8": '\
+				Maintenant, je vais vous donner magiquement le meilleur ensemble de poids. Pour la couche cachée: \
+				$$ \
+				w=\\begin{bmatrix} \
+				{{in0}} & {{in1}} & {{in2}} \\\\ \
+				{{in3}} & {{in4}} & {{in5}} \
+				\\end{bmatrix} \\qquad b=\\begin{bmatrix}{{in6}}  {{in7}}\\end{bmatrix}\
+				$$ \
+				Et pour la couche de sortie: \
+				$$ \
+				w=\\begin{bmatrix} \
+				{{in8}} & {{in9}} \
+				\\end{bmatrix} \\qquad b={{in10}} \
+				$$',
+				"segment9": '\
+				Essayons tout cela avec ces nouveaux poids: \
+				$$ \
+				\\begin{aligned} \
+				\\text{hidden unit 1} &= \\sigma(({{in0}} * {{in1}}) + ({{in2}} * {{in3}}) + ({{in4}} * {{in5}}) + {{in6}}) = {{in7}} \\\\ \
+				\\text{hidden unit 2} &= \\sigma(({{in8}} * {{in9}}) + ({{in10}} * {{in11}}) + ({{in12}} * {{in13}}) + {{in14}}) = {{in15}} \\\\ \
+				\\text{output} &= \\sigma(({{in16}} * {{in17}}) + ({{in18}} * {{in19}}) + {{in20}}) = {{in21}} \
+				\\end{aligned} \
+				$$',
+				"segment10": '\
+				Voilà! Nous avons eu la réponse que nous voulions - ainsi les poids du réseau contrôlent efficacement ce qu\'il produit.'
 			}
 		}
 	}
@@ -244,14 +354,9 @@ function demo(parent, width, height)
 
 	steps.push({
 		action: function() {
-			set_text_panel(parent.description_panel_div, '\
-				And for the output layer, let\'s say the weights are: \
-				$$ \
-				w=\\begin{bmatrix} \
-				'+weights[1][0][0]+' & '+weights[1][1][0].toFixed(1)+' \
-				\\end{bmatrix} \
-				$$\
-				And we let the final output neuron\'s bias be $b='+biases[2][0].toFixed(1)+'$', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment2', {in0: weights[1][0][0].toFixed(1), in1: weights[1][1][0].toFixed(1), in2: biases[2][0].toFixed(1)}),
+				true);
 		},
 		draw: function() {
 			display_values_layer2();
@@ -260,8 +365,9 @@ function demo(parent, width, height)
 
 	steps.push({
 		action: function() {
-			set_text_panel(parent.description_panel_div, '\
-				Let\'s input our datapoint $x=\\begin{bmatrix}'+input[0].toFixed(1)+' & '+input[1].toFixed(1)+' & '+input[2].toFixed(1)+'\\end{bmatrix}$ and see what output the network gives us.', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment3', {in0: input[0].toFixed(1), in1: input[1].toFixed(1), in2: input[2].toFixed(1)}),
+				true);
 		},
 		draw: function() {
 			for (var n=0; n<acts[0].length; n++) {
@@ -272,10 +378,11 @@ function demo(parent, width, height)
 
 	steps.push({
 		action: function() {
-			set_text_panel(parent.description_panel_div, '\
-				The output of the first (top-most in the graphic) hidden unit is: \
-				$$ z = ('+weights[0][0][0].toFixed(1)+' \\cdot '+input[0].toFixed(1)+') + ('+weights[0][1][0].toFixed(1)+' \\cdot '+input[1].toFixed(1)+') + ('+weights[0][2][0].toFixed(1)+' \\cdot '+input[2].toFixed(1)+') + '+biases[1][0].toFixed(1)+' = '+z[1][0].toFixed(1)+' $$ \
-				$$ \\sigma('+z[1][0].toFixed(1)+') = '+acts[1][0].toFixed(2)+' $$', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment4', {in0: weights[0][0][0].toFixed(1), in1: input[0].toFixed(1), in2: weights[0][1][0].toFixed(1),
+					in3: input[1].toFixed(1), in4: weights[0][2][0].toFixed(1), in5: input[2].toFixed(1),
+					in6: biases[1][0].toFixed(1), in7: z[1][0].toFixed(1), in8: z[1][0].toFixed(1), in9: acts[1][0].toFixed(2)}),
+				true);
 		},
 		draw: function() {
 			display_hidden_calculation(1, 0);
@@ -284,10 +391,11 @@ function demo(parent, width, height)
 	
 	steps.push({
 		action: function() {
-			set_text_panel(parent.description_panel_div, '\
-				The output of the second hidden unit is: \
-				$$ z = ('+weights[0][0][1].toFixed(1)+' \\cdot '+input[0].toFixed(1)+') + ('+weights[0][1][1].toFixed(1)+' \\cdot '+input[1].toFixed(1)+') + ('+weights[0][2][1].toFixed(1)+' \\cdot '+input[2].toFixed(1)+') + '+biases[1][1].toFixed(1)+' = '+z[1][1].toFixed(1)+' $$ \
-				$$ \\sigma('+z[1][1].toFixed(1)+') = '+acts[1][1].toFixed(2)+' $$', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment5', {in0: weights[0][0][1].toFixed(1), in1: input[0].toFixed(1), in2: weights[0][1][1].toFixed(1),
+					in3: input[1].toFixed(1), in4: weights[0][2][1].toFixed(1), in5: input[2].toFixed(1),
+					in6: biases[1][1].toFixed(1), in7: z[1][1].toFixed(1), in8: z[1][1].toFixed(1), in9: acts[1][1].toFixed(2)}),
+				true);
 		},
 		draw: function() {
 			display_hidden_calculation(1, 1);
@@ -296,10 +404,11 @@ function demo(parent, width, height)
 	
 	steps.push({
 		action: function() {
-			set_text_panel(parent.description_panel_div, '\
-				Now we take these and feed it into the output unit: \
-				$$ z = ('+weights[1][0][0].toFixed(1)+' \\cdot '+acts[1][0].toFixed(2)+') + ('+weights[1][1][0].toFixed(1)+' \\cdot '+acts[1][1].toFixed(2)+') + '+biases[2][0].toFixed(1)+' = '+z[2][0].toFixed(1)+' $$ \
-				$$ \\sigma('+z[2][0].toFixed(2)+') = '+acts[2][0].toFixed(2)+' $$', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment6', {in0: weights[1][0][0].toFixed(1), in1: acts[1][0].toFixed(2), in2: weights[1][1][0].toFixed(1),
+					in3: acts[1][1].toFixed(2), in4: biases[2][0].toFixed(1), in5: z[2][0].toFixed(1),
+					in6: z[2][0].toFixed(2), in7: acts[2][0].toFixed(2)}),
+				true);
 		},
 		draw: function() {
 			display_hidden_calculation(2, 0);
@@ -309,14 +418,9 @@ function demo(parent, width, height)
 	steps.push({
 		action: function() {
 			var error = get_mse(acts[2][0],y_correct);
-			set_text_panel(parent.description_panel_div, '\
-				Not quite right (we wanted to get $'+y_correct+'$)...we can measure our error with the mean squared error (MSE), which is the most common measurement for error in regression problems: \
-				$$ \
-				\\begin{aligned} \
-				\\text{mse} &= ('+y_correct.toFixed(2)+' - '+acts[2][0].toFixed(2)+')^2 \\\\ \
-				\\text{mse} &= '+error.toFixed(3)+' \
-				\\end{aligned} \
-				$$', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment7', {in0: y_correct, in1: y_correct.toFixed(2), in2: acts[2][0].toFixed(2), in3: error.toFixed(3)}),
+				true);
 		},
 		draw: function() {}
 	});
@@ -324,20 +428,12 @@ function demo(parent, width, height)
 	steps.push({
 		action: function() {
 			forward_pass(true);
-			set_text_panel(parent.description_panel_div, '\
-				Now I\'ll magically give you the best set of weights. For the hidden layer: \
-				$$ \
-				w=\\begin{bmatrix} \
-				'+weights[0][0][0].toFixed(1)+' & '+weights[0][1][0].toFixed(1)+' & '+weights[0][2][0].toFixed(1)+' \\\\ \
-				'+weights[0][0][1].toFixed(1)+' & '+weights[0][1][1].toFixed(1)+' & '+weights[0][2][1].toFixed(1)+' \
-				\\end{bmatrix} \\qquad b=\\begin{bmatrix}'+biases[1][0]+'  '+biases[1][1]+'\\end{bmatrix}\
-				$$ \
-				And for the output layer: \
-				$$ \
-				w=\\begin{bmatrix} \
-				'+weights[1][0][0].toFixed(1)+' & '+weights[1][1][0].toFixed(1)+' \
-				\\end{bmatrix} \\qquad b='+biases[2][0].toFixed(1)+' \
-				$$', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment8', {in0: weights[0][0][0].toFixed(1), in1: weights[0][1][0].toFixed(1), in2: weights[0][2][0].toFixed(1),
+					in3: weights[0][0][1].toFixed(1), in4: weights[0][1][1].toFixed(1), in5: weights[0][2][1].toFixed(1),
+					in6: biases[1][0], in7: biases[1][1], in8: weights[1][0][0].toFixed(1),
+					in9: weights[1][1][0].toFixed(1), in10: biases[2][0].toFixed(1)}),
+				true);
 		},
 		draw: function() {
 			display_values_layer1();
@@ -347,15 +443,16 @@ function demo(parent, width, height)
 
 	steps.push({
 		action: function() {
-			set_text_panel(parent.description_panel_div, '\
-				Let\'s try this all again with these new weights: \
-				$$ \
-				\\begin{aligned} \
-				\\text{hidden unit 1} &= \\sigma(('+weights[0][0][0].toFixed(1)+' * '+input[0].toFixed(1)+') + ('+weights[0][1][0].toFixed(1)+' * '+input[1].toFixed(1)+') + ('+weights[0][2][0].toFixed(1)+' * '+input[2].toFixed(1)+') + '+biases[1][0].toFixed(1)+') = '+acts[1][0].toFixed(2)+' \\\\ \
-				\\text{hidden unit 2} &= \\sigma(('+weights[0][0][1].toFixed(1)+' * '+input[0].toFixed(1)+') + ('+weights[0][1][1].toFixed(1)+' * '+input[1].toFixed(1)+') + ('+weights[0][2][1].toFixed(1)+' * '+input[2].toFixed(1)+') + '+biases[1][1].toFixed(1)+') = '+acts[1][1].toFixed(2)+' \\\\ \
-				\\text{output} &= \\sigma(('+weights[1][0][0].toFixed(1)+' * '+acts[1][0].toFixed(2)+') + ('+weights[1][1][0].toFixed(2)+' * '+acts[1][1].toFixed(2)+') + '+biases[2][0].toFixed(1)+') = '+acts[2][0].toFixed(2)+' \
-				\\end{aligned} \
-				$$', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment9', {in0: weights[0][0][0].toFixed(1), in1: input[0].toFixed(1), in2: weights[0][1][0].toFixed(1),
+					in3: input[1].toFixed(1), in4: weights[0][2][0].toFixed(1), in5: input[2].toFixed(1),
+					in6: biases[1][0].toFixed(1), in7: acts[1][0].toFixed(2), in8: weights[0][0][1].toFixed(1),
+					in9: input[0].toFixed(1), in10: weights[0][1][1].toFixed(1), in11: input[1].toFixed(1),
+					in12: weights[0][2][1].toFixed(1), in13: input[2].toFixed(1), in14: biases[1][1].toFixed(1),
+					in15: acts[1][1].toFixed(2), in16: weights[1][0][0].toFixed(1), in17: acts[1][0].toFixed(2),
+					in18: weights[1][1][0].toFixed(2), in19: acts[1][1].toFixed(2), in20: biases[2][0].toFixed(1),
+					in21: acts[2][0].toFixed(2)}),
+				true);
 		},
 		draw: function() {
 			display_everything();
@@ -364,8 +461,8 @@ function demo(parent, width, height)
 
 	steps.push({
 		action: function() {
-			set_text_panel(parent.description_panel_div, '\
-				Voilà! We got the answer we wanted - so the weights of the network effectively control what it outputs.', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment10'), true);
 		},
 		draw: function() {}
 	});

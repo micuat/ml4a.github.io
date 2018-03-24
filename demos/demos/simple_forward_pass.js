@@ -13,14 +13,20 @@ i18next.init({
 			translation: {
 				"segment0": 'Suppose we have a dataset with one point: \
 				$$x=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\end{bmatrix} \\qquad y={{y}}$$\
-				We can attempt to fit a 3x2x1 neural network with sigmoid activation functions, as seen below.'
+				We can attempt to fit a 3x2x1 neural network with sigmoid activation functions, as seen below.',
+				"segment1": '\
+				Let\'s try a set of random weights and biases. For the first hidden layer, let\'s say our weights and biases are: \
+				$$w=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\\\ {{in3}} & {{in4}} & {{in5}} \\end{bmatrix} \\qquad b=\\begin{bmatrix} {{in6}} & {{in7}} \\end{bmatrix} $$'
 			}
 		},
 		fr: {
 			translation: {
 				"segment0": "Supposons que nous ayons un ensemble de données avec un point: \
 				$$x=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\end{bmatrix} \\qquad y={{y}}$$\
-				Nous pouvons essayer d'adapter un réseau neuronal 3x2x1 avec des fonctions d'activation sigmoïde, comme on le voit ci-dessous."
+				Nous pouvons essayer d'adapter un réseau neuronal 3x2x1 avec des fonctions d'activation sigmoïde, comme on le voit ci-dessous.",
+				"segment1": '\
+				Essayons un ensemble de poids et de biais aléatoires. Pour la première couche cachée, disons que nos poids et biais sont: \
+				$$w=\\begin{bmatrix} {{in0}} & {{in1}} & {{in2}} \\\\ {{in3}} & {{in4}} & {{in5}} \\end{bmatrix} \\qquad b=\\begin{bmatrix} {{in6}} & {{in7}} \\end{bmatrix} $$'
 			}
 		}
 	}
@@ -226,9 +232,10 @@ function demo(parent, width, height)
 	// segment 1 (1 step): annotate all net labels
 	steps.push({
 		action: function(){
-			set_text_panel(parent.description_panel_div, '\
-				Let\'s try a set of random weights and biases. For the first hidden layer, let\'s say our weights and biases are: \
-				$$w=\\begin{bmatrix} '+weights[0][0][0].toFixed(1)+' & '+weights[0][1][0].toFixed(1)+' & '+weights[0][2][0].toFixed(1)+' \\\\ '+weights[0][0][1].toFixed(1)+' & '+weights[0][1][1].toFixed(1)+' & '+weights[0][2][1].toFixed(1)+' \\end{bmatrix} \\qquad b=\\begin{bmatrix} '+biases[1][0].toFixed(1)+' & '+biases[1][1].toFixed(1)+' \\end{bmatrix} $$', true);
+			set_text_panel(parent.description_panel_div,
+				i18next.t('segment1', {in0: weights[0][0][0].toFixed(1), in1: weights[0][1][0].toFixed(1), in2: weights[0][2][0].toFixed(1),
+					in3: weights[0][0][1].toFixed(1), in4: weights[0][1][1].toFixed(1), in5: weights[0][2][1].toFixed(1), in6: biases[1][0].toFixed(1), in7: biases[1][1].toFixed(1)}),
+				true);
 		},
 		draw: function() {
 		    display_values_layer1();
